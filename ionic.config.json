@@ -1,0 +1,7 @@
+{
+  "name": "vox-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
