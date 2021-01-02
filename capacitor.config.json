@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "vox-app",
+  "appName": "vox",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
