@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  currentRate = 0;
 
   constructor() {}
 
+  printNewRate(newrate:number) {
+    console.log(" newrate = " + newrate + " - currentRate = " + this.currentRate);
+  }
+  
 }

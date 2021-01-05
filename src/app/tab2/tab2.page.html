@@ -15,5 +15,18 @@
     </ion-toolbar>
   </ion-header>
 
+  <!-- Probleme de style -->
+  <ng-template #t let-fill="fill">
+    <span class="star" [class.full]="fill === 100">
+      <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
+    </span>
+  </ng-template>
+  
+  <!-- rating dont on peut lire la valeur (grace a rateChange et hover): -->
+  <ngb-rating [(rate)]="currentRate" (rateChange)="printNewRate($event)" (hover)="hovered = $event" [starTemplate]="t" [readonly]="false" [max]="5"></ngb-rating>
+  
+  <hr>
+  <pre>Rate: <b>{{currentRate}}</b></pre>
+  
   <app-explore-container name="Tab 2 page"></app-explore-container>
 </ion-content>
