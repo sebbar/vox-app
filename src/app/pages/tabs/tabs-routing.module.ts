@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('../home/home.module').then(m => m.HomeModule)
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'tab3',
@@ -17,7 +17,7 @@ const routes: Routes = [
       },
       {
         path: 'profile',
-        loadChildren: () => import('../profile/profile.module').then(m => m.ProfilePageModule)
+        loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
       },
       {
         path: 'tab1',
