@@ -11,7 +11,7 @@ export class Tab2Page {
   currentRate = 0;
 
   constructor() {}
-  
+
 /*
   constructor(private _snackBar: MatSnackBar) {}
 
@@ -23,11 +23,11 @@ export class Tab2Page {
 */
 
   onRateChange() {
-    console.log(" currentRate = " + this.currentRate);
+    console.log(' currentRate = ' + this.currentRate);
   }
 
-  onRatingEvent(newrate:number) {
-    console.log("newrate = " + newrate);
+  onRatingEvent(newrate: number) {
+    console.log('newrate = ' + newrate);
   }
 
 

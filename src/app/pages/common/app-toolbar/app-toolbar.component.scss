@@ -1,0 +1,25 @@
+ion-header, ion-toolbar, ion-title {
+  text-align: center;
+  justify-content: space-between;
+}
+
+ion-toolbar {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+ion-title {
+  text-align: center;
+}
+
+ion-header img {
+  height: 47px;
+  width: 200px;
+}
+
+ion-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

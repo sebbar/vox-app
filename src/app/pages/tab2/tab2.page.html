@@ -14,10 +14,8 @@
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header>
-<!--
-  <rating [(rating)]="currentRate" (click)="onRateChange()" ></rating>
--->
-<rating [(rating)]="currentRate" (click)="onRateChange()" (ratingChange)="onRatingEvent($event)"></rating>
+
+  <rating [(rating)]="currentRate" (click)="onRateChange()" (ratingChange)="onRatingEvent($event)"></rating>
 
 <!--
 <rating [(rating)]="currentRate" (click)="onRateChange(); openSnackBar('Your rate is ', currentRate);" (ratingChange)="onRatingEvent($event)"></rating>
