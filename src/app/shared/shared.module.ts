@@ -17,6 +17,7 @@ import {AppToolbarComponent} from '../pages/common/app-toolbar/app-toolbar.compo
         IonicModule,
         CommonModule,
         FormsModule,
+        AppToolbarComponent,
     ]
 })
 export class SharedModule{}
