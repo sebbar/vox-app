@@ -9,19 +9,22 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import {KeycloakAngularModule, KeycloakBearerInterceptor, KeycloakService} from 'keycloak-angular';
 
 import {environment} from '../environments/environment';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
       keycloak.init({
         config: environment.keycloakConfig,
-        initOptions: {
-          onLoad: 'check-sso',
-          silentCheckSsoRedirectUri:
-              window.location.origin + '/assets/silent-check-sso.html'
-        }
+          initOptions: {
+              onLoad: 'check-sso',
+              silentCheckSsoRedirectUri:
+                  window.location.origin + '/assets/silent-check-sso.html'
+          },
+        enableBearerInterceptor: true,
+        bearerExcludedUrls: []
       });
 }
 
@@ -36,15 +39,21 @@ function initializeKeycloak(keycloak: KeycloakService) {
     KeycloakAngularModule
   ],
   providers: [
+    StatusBar,
+    SplashScreen,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService]
     },
-    StatusBar,
-    SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: KeycloakBearerInterceptor,
+      multi: true,
+      deps: [KeycloakService]
+    }
   ],
   bootstrap: [AppComponent]
 })

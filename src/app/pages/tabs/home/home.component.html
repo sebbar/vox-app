@@ -94,6 +94,10 @@
 
   <img class="post_img" src="../../../../assets/images/post_2.jpg">
 
+  <div *ngIf="json$ | async as jsonVar">
+    {{ jsonVar | json }}
+  </div>
+
   <div class="flex-button">
     <div>
       <ion-icon name="heart"></ion-icon>
